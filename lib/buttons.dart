@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:calulator_blue_white/Colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,10 +26,14 @@ class Keywidget extends StatelessWidget {
           height: 85,
           width: 85,
           clipBehavior: Clip.antiAlias,
-          decoration: ShapeDecoration(
-              color: BackgroundColor,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10))),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: whiteColor,
+            border: Border.all(
+              color: darkWhiteColor, // Border color
+              width: 1.5, // Border width
+            ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,9 +41,9 @@ class Keywidget extends StatelessWidget {
             children: [
               Text(text,
                   style: GoogleFonts.unbounded(
-                    fontSize: 60,
+                    fontSize: 35,
                     fontWeight: FontWeight.w400,
-                    color: color,
+                    color: darkColor,
                   ))
             ],
           ),

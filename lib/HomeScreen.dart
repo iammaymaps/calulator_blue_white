@@ -1,3 +1,4 @@
+import 'package:calulator_blue_white/Colors.dart';
 import 'package:calulator_blue_white/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -55,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF97F85B),
+      backgroundColor: blueColor,
       body: Column(
         children: [
           Expanded(
@@ -68,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Text(
                   questions,
                   style: GoogleFonts.unbounded(
-                    color: Color(0xFF244C41),
+                    color: whiteColor,
                     fontSize: 80,
                     fontWeight: FontWeight.w400,
                   ),
@@ -92,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                   flex: 2,
                   child: Container(
-                    color: Color(0xFF262626),
+                    color: whiteColor,
                     child: GridView.builder(
                         itemCount: buttons.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -102,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             return Keywidget(
                               text: buttons[index],
                               BackgroundColor: Color(0xFF244C41),
-                              color: Color(0xFF97F85B),
+                              color: blueColor,
                               Pressed: () {
                                 setState(() {
                                   questions = "";
@@ -120,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
                               text: buttons[index],
                               BackgroundColor: Color(0xFF244C41),
-                              color: Color(0xFF97F85B),
+                              color: blueColor,
                             );
                           } else if (index == buttons.length - 1) {
                             return Keywidget(
