@@ -63,12 +63,15 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
               child: Column(
             children: [
+              SizedBox(
+                height: 50.h,
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Row(
                   children: [
                     Icon(
-                      Icons.settings,
+                      Icons.settings_outlined,
                       size: 35.r,
                       color: whiteColor,
                     )
@@ -77,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(
                 width: double.infinity,
-                height: 200.h,
+                height: 230.h,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
