@@ -1,6 +1,7 @@
 import 'package:calulator_blue_white/Colors.dart';
 import 'package:calulator_blue_white/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:math_expressions/math_expressions.dart';
 
@@ -61,33 +62,60 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Expanded(
               child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  questions,
-                  style: GoogleFonts.unbounded(
-                    color: whiteColor,
-                    fontSize: 80,
-                    fontWeight: FontWeight.w400,
-                  ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.settings,
+                      size: 35.r,
+                      color: whiteColor,
+                    )
+                  ],
                 ),
               ),
               SizedBox(
-                height: 30,
-              ),
-              Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  answer,
-                  style: GoogleFonts.unbounded(
-                    color: Color(0xFF244C41),
-                    fontSize: 40,
-                    fontWeight: FontWeight.w400,
-                  ),
+                width: double.infinity,
+                height: 200.h,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: Text(
+                          answer,
+                          style: GoogleFonts.inter(
+                            color: whiteColor,
+                            fontSize: 60,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 35.h,
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: Text(
+                          questions,
+                          style: GoogleFonts.inter(
+                            color: whiteColor,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30.h,
+                    )
+                  ],
                 ),
               ),
               Expanded(
@@ -96,8 +124,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: whiteColor,
                     child: GridView.builder(
                         itemCount: buttons.length,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 4),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 4),
                         itemBuilder: (BuildContext context, int index) {
                           if (index == 0) {
                             return Keywidget(
@@ -143,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
                               text: buttons[index],
                               BackgroundColor: isOparator(buttons[index])
-                                  ? Color(0xFF97F85B)
+                                  ? blueColor
                                   : Color(0xFF244C41),
                               color: isOparator(buttons[index])
                                   ? Color(0xFF244C41)

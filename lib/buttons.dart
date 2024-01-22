@@ -40,7 +40,7 @@ class Keywidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(text,
-                  style: GoogleFonts.unbounded(
+                  style: GoogleFonts.inter(
                     fontSize: 35,
                     fontWeight: FontWeight.w400,
                     color: darkColor,
