@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:math_expressions/math_expressions.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -70,11 +71,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.settings_outlined,
-                      size: 35.r,
-                      color: whiteColor,
-                    )
+                    Builder(builder: (context) {
+                      return IconButton(
+                        icon: Icon(
+                          Icons.settings_outlined,
+                          size: 35.r,
+                          color: whiteColor,
+                        ),
+                        onPressed: () {
+                          Scaffold.of(context).openDrawer();
+                        },
+                      );
+                    })
                   ],
                 ),
               ),
@@ -188,6 +196,26 @@ class _HomeScreenState extends State<HomeScreen> {
           ))
         ],
       ),
+      drawer: Drawer(
+          child: ListView(
+        children: [
+          GestureDetector(
+            onTap: () async {
+              final url =
+                  "https://privacy-policy-blue-cal-pal.my.canva.site/privacy-policy";
+              if (await canLaunch(url)) {
+                await launch(url, forceSafariVC: false);
+              } else {
+                print("Error on the link");
+              }
+            },
+            child: const ListTile(
+              leading: Icon(Icons.error_outline_rounded),
+              title: Text("Privacy Policy"),
+            ),
+          )
+        ],
+      )),
     );
   }
 
