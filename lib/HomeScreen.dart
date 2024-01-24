@@ -196,23 +196,22 @@ class _HomeScreenState extends State<HomeScreen> {
           ))
         ],
       ),
+      //"https://privacy-policy-blue-cal-pal.my.canva.site/privacy-policy"
       drawer: Drawer(
           child: ListView(
         children: [
-          GestureDetector(
+          ListTile(
             onTap: () async {
-              final url =
+              const url =
                   "https://privacy-policy-blue-cal-pal.my.canva.site/privacy-policy";
               if (await canLaunch(url)) {
-                await launch(url, forceSafariVC: false);
+                await launch(url);
               } else {
-                print("Error on the link");
+                throw 'Could not launch $url';
               }
             },
-            child: const ListTile(
-              leading: Icon(Icons.error_outline_rounded),
-              title: Text("Privacy Policy"),
-            ),
+            leading: Icon(Icons.error_outline_rounded),
+            title: Text("Privacy Policy"),
           )
         ],
       )),
