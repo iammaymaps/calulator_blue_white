@@ -1,4 +1,4 @@
-package com.example.calulator_blue_white;
+package com.tanjourney.bluecalpal;
 
 import io.flutter.embedding.android.FlutterActivity;
 
